@@ -15,6 +15,19 @@
         </repository>
     </repositories>
 
+    <distributionManagement>
+        <repository>
+            <id>ird-repo</id>
+            <name>IRD Archiva</name>
+            <url>http://ird.mu-sigma.com/archiva/repository/internal/</url>
+        </repository>
+        <snapshotRepository>
+            <id>ird-snapshots</id>
+            <name>Internal Snapshot Repository</name>
+            <url>http://ird.mu-sigma.com/archiva/repository/snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
     <dependencies>
         <dependency>
             <groupId>org.apache.kafka</groupId>
@@ -37,6 +50,8 @@
                 <artifactId>maven-assembly-plugin</artifactId>
                 <version>3.1.0</version>
                 <configuration>
+                    <finalName>kafka-producer</finalName>
+                    <appendAssemblyId>false</appendAssemblyId>
                     <descriptorRefs>
                         <descriptorRef>jar-with-dependencies</descriptorRef>
                     </descriptorRefs>
