@@ -54,6 +54,11 @@ end
 to push-message
    kafka-producer:kafka-message (word self) (word date-and-time "hello")
 end
+
+;; stop the producer when simulation is done
+to stop-kafa
+   kafka-producer:stop-kafka-producer
+end
 ```
 
   
