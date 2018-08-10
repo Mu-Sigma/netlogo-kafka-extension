@@ -30,7 +30,7 @@ User your I&D credentials to download.
 #### How to add this extension to NetLogo
 
 1. Download the jar.
-2. Create a folder called 'kafka-producer' in app/extensions direcotyr of your
+2. Create a folder called 'kafka-producer' in app/extensions directory of your
 NetLogo installation.
 3. Copy the jar to that folder and rename it to kafka-producer.jar
 
