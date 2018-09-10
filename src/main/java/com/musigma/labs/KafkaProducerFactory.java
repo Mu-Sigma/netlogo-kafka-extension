@@ -64,6 +64,19 @@ public class KafkaProducerFactory {
             this.producer =  new KafkaProducer<String, String>(props);
         }
 
+        public void sendMessageAsync(String topic, String key, String value)  {
+            final ProducerRecord<String, String> record =
+                    new ProducerRecord<String, String>(topic, key, value);
+
+            //Fire and forget. No worry about failures
+            producer.send(record);
+        }
+
+
+        public void sendMessageAsync(String key, String value) {
+            sendMessageAsync(this.topic, key, value);
+        }
+
         public void sendMessage(String topic, String key, String value)  {
             final ProducerRecord<String, String> record =
                     new ProducerRecord<String, String>(topic, key, value);

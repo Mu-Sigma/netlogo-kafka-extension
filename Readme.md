@@ -7,14 +7,23 @@ Kafka accepts data in the key:value format. This extension lets the user provide
 both the key and value in String format. No other data type is supported in this
 version.
 
-Currently, you can only push to one kafka cluster from your simulation.   
+Currently, you can only push to one kafka cluster from your simulation.
 
-#### Available primitives
+#### Updates
+
+##### Version 2.0 (September 10 2018)
+
+* The primitives have been renamed for better understanding and easier use
+* Introduction of asyc 'send' primitives for faster throughput (Fire and forget)   
+
+#### Available primitives (Version 2.0)
 
 * start-kafka-producer *list_of_brokers(comma-separated)* *default_topic*
 * stop-kafka-producer
-* kafka-message *key* *value*
-* kafka-message-to-topic *topic* *key* *value*
+* send *key* *value*
+* send-to-topic *topic* *key* *value*
+* send-async *key* *value*
+* send-to-topic-async *topic* *key* *value*
 
 **kafka-message** primitive streams data to the *default_topic* defined when the 
 **start-kafka-producer** is used

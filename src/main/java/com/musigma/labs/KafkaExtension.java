@@ -9,8 +9,10 @@ public class KafkaExtension extends DefaultClassManager {
     public void load(PrimitiveManager primManager) throws ExtensionException {
         primManager.addPrimitive("start-kafka-producer", new CreateKafkaProducer());
         primManager.addPrimitive("stop-kafka-producer", new StopKafkaProducer());
-        primManager.addPrimitive("kafka-message", new SendKafkaMessage());
-        primManager.addPrimitive("kafka-message-to-topic", new SendKafkaMessageToTopic());
+        primManager.addPrimitive("send", new SendKafkaMessage());
+        primManager.addPrimitive("send-async", new SendKafkaMessage(true));
+        primManager.addPrimitive("send-to-topic", new SendKafkaMessageToTopic());
+        primManager.addPrimitive("send-to-topic-async", new SendKafkaMessageToTopic(true));
     }
 }
 
