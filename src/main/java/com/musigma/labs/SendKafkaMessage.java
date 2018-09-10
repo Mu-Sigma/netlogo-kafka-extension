@@ -9,12 +9,26 @@ import org.nlogo.core.SyntaxJ;
 
 public class SendKafkaMessage implements Command {
 
+    private boolean isAsync = false;
+
+    public SendKafkaMessage(boolean isAsync) {
+        this.isAsync = isAsync;
+    }
+
+    SendKafkaMessage() {
+
+    }
+
     public void perform(Argument[] args, Context context) throws ExtensionException {
         try {
             String key = args[0].getString();
             String value = args[1].getString();
 
-            KafkaProducerFactory.getProducer().sendMessage(key, value);
+            if(this.isAsync) {
+                KafkaProducerFactory.getProducer().sendMessageAsync(key, value);
+            } else {
+                KafkaProducerFactory.getProducer().sendMessage(key, value);
+            }
         } catch (ExtensionException e) {
             throw new ExtensionException(e.getMessage());
         }
