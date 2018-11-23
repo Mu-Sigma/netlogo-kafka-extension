@@ -1,6 +1,8 @@
-### NetLog kafka Extension
+## Introduction
 
-Stream events from your NetLogo model to a kafa topic. You can connect to a kafka cluster 
+### Objective of NetLogo kafka Extension
+
+This netlogo extension lets you stream events from your NetLogo model to a kafa topic. You can connect to a kafka cluster 
 and push to any topic in the cluster.
 
 Kafka accepts data in the key:value format. This extension lets the user provide
@@ -9,9 +11,9 @@ version.
 
 Currently, you can only push to one kafka cluster from your simulation.
 
-#### Updates
+## Updates
 
-##### Version 2.0 (September 10 2018)
+### Version 2.0 (September 10 2018)
 
 * The primitives have been renamed for better understanding and easier use
 * Introduction of asyc 'send' primitives for faster throughput (Fire and forget)   
@@ -31,21 +33,26 @@ Currently, you can only push to one kafka cluster from your simulation.
 If you want to stream data to a different topic than the default one use 
 **kafka-message-to-topic** primitive.
 
-#### Downloads
+## Usage
 
-You can download the jar from [IRD archiva](http://ird.mu-sigma.com/archiva/repository/internal/com/musigma/labs/kafka-netlogo/1.0/kafka-netlogo-1.0.jar).
-User your I&D credentials to download.
+### Build
 
-#### How to add this extension to NetLogo
+1. Clone the project. You would need Java and Maven before you proceed
+2. Run 
+  ```
+  mvn clean install
+```
+3. The target folder should have `kafka-producer-jar-with-dependencies.jar`
 
-1. Download the jar.
-2. Create a folder called 'kafka-producer' in app/extensions directory of your
+### Add extension to NetLogo
+
+1. Create a folder called 'kafka-producer' in app/extensions directory of your
 NetLogo installation.
-3. Copy the jar to that folder and rename it to kafka-producer.jar
+2. Copy the jar to that folder and rename it to kafka-producer.jar
 
 You can now use kafka-producer extension in your simulation
 
-#### Using it in Simulation
+### Using it in Simulation
 
 ```
 ;; declare extension
